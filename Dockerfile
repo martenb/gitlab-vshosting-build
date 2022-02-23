@@ -1,6 +1,7 @@
-FROM php:7.2
+FROM php:7.4
 
 RUN apt-get -y update && \
-    apt-get -y --no-install-recommends install git openssh-client rsync zip wget
+    apt-get -y --no-install-recommends install gettext git openssh-client rsync zip wget && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN curl --silent --show-error https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
