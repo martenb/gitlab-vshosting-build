@@ -1,4 +1,4 @@
-FROM php:7.4
+FROM php:8.0
 
 RUN apt-get -y update && \
     apt-get -y --no-install-recommends install gettext git openssh-client rsync zip wget && \
