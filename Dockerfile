@@ -1,4 +1,6 @@
-FROM php:7.4
+ARG PHP_VERSION
+
+FROM php:$PHP_VERSION
 
 RUN apt-get -y update && \
     apt-get -y --no-install-recommends install jq gettext git openssh-client rsync zip wget && \
